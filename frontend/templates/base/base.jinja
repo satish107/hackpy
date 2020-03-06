@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hacker News</title>
+	<style type="text/css">
+		#hnmain {
+			border: "0";
+			width: "85%";
+			background-color: "#f6f6ef";
+			width: 85%;
+		}
+		#hn_logo {
+			width: 18px;
+			padding-right: 4px;
+		}
+		#hn_logo a img {
+			width: 18px;
+			height: 18px;
+			border: 1px white solid;
+		}
+		#hn_menu {
+			line-height: 12pt;
+			height: 10px;
+		}
+		#login {
+			text-align: right;
+			padding-right: 4px;
+			float: right;
+		}
+		#news-table {
+
+		}
+		#a-tag {
+        text-decoration: none;
+      }
+	</style>
+</head>
+<body>
+<center>
+	<table id="hnmain">
+		<tbody>
+			<tr>
+				<td style="background-color: #FF6515;">
+					<table width="100%">
+						<tbody>
+							<tr>
+								<td id="hn_logo">
+									<a href="">
+										<img src="" >
+									</a>
+								</td>
+								<td id="hn_menu">
+									<span>
+										<b>
+											<a href="{{url('news_app:all_news')}}">
+												Hacker News
+											</a>
+										</b>
+										 |
+										<a href="">
+											new
+										</a>
+										 | 
+										<a href="{{url('news_app:create_news')}}">
+											submit
+										</a>
+									</span>
+								</td>
+								{% if request.user.is_authenticated %}
+								<td id="login">
+									<span>
+										<a href="{{ url('users:login') }}">
+											{{ request.user.username }}
+										</a>
+										|
+										<a href="{{ url('users:logout') }}">Logout</a>
+									</span>
+								</td>
+								{% else %}
+								<td id="login">
+									<span>
+										<a href="{{ url('users:login') }}">
+											Login
+										</a>
+									</span>
+								</td>
+								{% endif %}
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr style="height: 10px"></tr>
+			<tr>
+				<td>
+					<table id="news-table">
+						<tbody>
+							<tr class="content">
+								<!-- <td>
+									<span class="rank">1</span>
+								</td>
+								<td>
+									<center>
+										<a href="">
+											<div>
+												
+											</div>
+										</a>
+									</center>
+								</td> -->
+							{% block content %}{% endblock %}
+							<tr style="height:5px"></tr>
+							
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</center>
+</body>
+</html>
+
+

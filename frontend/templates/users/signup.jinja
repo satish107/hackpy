@@ -1,0 +1,9 @@
+{% extends 'base/base.jinja' %}
+	{% block content %}
+	<h1>Registration Form</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ sign_up_form }}
+		<input type="submit" name="button" value="Submit">
+	</form>
+	{% endblock %}

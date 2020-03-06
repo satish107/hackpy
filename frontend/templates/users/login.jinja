@@ -1,0 +1,17 @@
+{% extends 'base/base.jinja' %}
+{% block content %}
+<div>
+	<div>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form }}
+		<input type="submit" name="button" value="Submit">
+	</form>
+	</div>
+	<div>
+		<p>Or signUp here</p><br>
+		<a href="{{ url('users:signup')}}">SignUp</a>
+	</div>
+</div>
+
+{% endblock %}

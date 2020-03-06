@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block content %}
+	<div>
+		{% for news in searched_items %}
+			<div>
+			<li class="list-group-item"><a href="{{ news.link }}">{{ news.title }}</a><br>
+               {% with news.comments.all.count as total_comments %}
+               <span class="comments"><a href="{% url 'news:news' news.id %}">{{ total_comments }} comments</a></span>
+               {% endwith %}
+            </li>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

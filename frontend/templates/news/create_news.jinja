@@ -1,0 +1,17 @@
+{% extends 'base/base.jinja' %}
+{% block content %}
+	<div>
+		<form method = "POST">
+			{% csrf_token %}
+		  <label for="title">Title</label><br>
+		  <input type="text" name="title"><br>
+		  <label for="link">Link</label><br>
+		  <input type="text" name="link"><br>
+		  or <br>
+		  <label for="text">Text</label><br>
+		  <textarea name="text" rows="6" cols="60"></textarea><br><br>
+		  <input type="submit" value="Submit">
+		</form>
+	</div>
+{% endblock %}
+

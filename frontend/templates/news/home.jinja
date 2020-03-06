@@ -1,0 +1,46 @@
+{% extends 'base/base.jinja' %}
+{% block content %}
+<head>
+  <title></title>
+</head>
+{% for news in page_news %}
+  <table>
+
+    
+  <tr>
+    <td>
+    {{ loop.index + (page_news|count * (page_news.number - 1))}}
+    </td>
+    <td>
+    <a href="{{ news.link }}">{{ news.title }}</a>
+    </td>
+  </tr>
+{% with total_comments = news.comments.all().count() %}
+  <tr>
+    <td>
+      <a href="{{ url('news_app:news_detail', id=news.id) }}"> {{total_comments}} Comments</a>
+      
+    </td>
+  </tr>
+  {% endwith %}
+
+  </table>
+{% endfor %}
+            <div class="pagination">
+    <span class="step-links">
+        {% if page_news.has_previous() %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_news.previous_page_number() }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_news.number }} of {{ page_news.paginator.num_pages }}.
+        </span>
+
+        {% if page_news.has_next() %}
+            <a href="?page={{ page_news.next_page_number() }}">next</a>
+            <a href="?page={{ page_news.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
