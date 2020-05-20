@@ -54,7 +54,7 @@ googleapis-common-protos==1.51.0
 googlemaps==2.5.1
 grpcio==1.27.2
 gunicorn==19.7.1
-httplib2==0.17.0
+httplib2==0.18.0
 idna==2.6
 ipaddress==1.0.23
 Jinja2==2.11.1
