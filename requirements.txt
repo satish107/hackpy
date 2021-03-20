@@ -57,7 +57,7 @@ gunicorn==19.7.1
 httplib2==0.17.0
 idna==2.6
 ipaddress==1.0.23
-Jinja2==2.11.1
+Jinja2==2.11.3
 jmespath==0.9.4
 jsonfield==2.0.2
 kombu==3.0.37
