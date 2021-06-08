@@ -72,7 +72,7 @@ oauthlib==3.1.0
 olefile==0.46
 paramiko==2.7.1
 pdfminer==20140328
-Pillow==4.2.1
+Pillow==8.2.0
 protobuf==3.11.3
 pusher==2.0.1
 pyasn1==0.4.8
